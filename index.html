@@ -8,27 +8,29 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style..css" />
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div id="main">
-      <!-- <div id="home">
+      <div id="home">
         <div id="nav">
           <img
+            class="magnet"
             src="https://searchvectorlogo.com/wp-content/uploads/2020/12/cuberto-logo-vector.png"
             alt=""
           />
           <div id="right">
             <a href="">our showreel</a><a href="">menu</a
-            ><i class="ri-menu-5-line"></i>
+            ><i class="ri-menu-5-line magnet"></i>
           </div>
         </div>
         <div id="homemain">
           <h1>We make it happen.</h1>
           <div class="headings">
-            <h1>Websites</h1>
-            <h1>Apps</h1>
-            <h1>branding</h1>
+            <h1 class="hvr">Websites</h1>
+            <h1 class="hvr">Apps</h1>
+            <h1 class="hvr">branding</h1>
           </div>
         </div>
         <div id="homelast">
@@ -38,7 +40,7 @@
             business services.
           </p>
         </div>
-      </div> -->
+      </div>
       <div id="featured">
         <div class="fheading">
           <h1>featured</h1>
@@ -46,35 +48,108 @@
         </div>
         <div id="fimages">
           <div id="fleft">
-            <div class="fleftlm">
+            <div class="fleftelm">
               <h3>Riyadh</h3>
               <h1>official website of riyadh, saudi arabia's capital.</h1>
               <h4>design, development , product</h4>
             </div>
-            <div class="fleftlm">
+            <div class="fleftelm">
               <h3>Riyadh2</h3>
               <h1>official website of riyadh, saudi arabia's capital.</h1>
               <h4>design, development , product</h4>
             </div>
-            <div class="fleftlm">
+            <div class="fleftelm">
               <h3>Riyadh3</h3>
               <h1>official website of riyadh, saudi arabia's capital.</h1>
               <h4>design, development , product</h4>
             </div>
-            <div class="fleftlm">
+            <div class="fleftelm last">
               <h3>Riyadh4</h3>
               <h1>official website of riyadh, saudi arabia's capital.</h1>
               <h4>design, development , product</h4>
             </div>
           </div>
           <div id="fright">
-            <div class="images"></div>
+            <div class="images">
+              <img
+                src="https://images.unsplash.com/photo-1692343814412-cbe23ff32765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=767&q=80"
+                alt=""
+              />
+              <img
+                src="https://images.unsplash.com/photo-1609428079875-ae186c562aff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=689&q=80"
+                alt=""
+              />
+              <img
+                src="https://images.unsplash.com/photo-1614633833026-0820552978b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
+                alt=""
+              />
+              <img
+                src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
+                alt=""
+              />
+            </div>
           </div>
         </div>
-        <div id="btndiv">
+        <div class="btndiv">
           <button>view all products</button>
         </div>
       </div>
+      <div id="dev">
+        <h1>Development and design resources</h1>
+        <p>
+          We regularly release design courses, offer advice to newbie designers,
+          walk you through creating awesome effects, and share source files
+        </p>
+      </div>
+      <div id="slides">
+        <div class="slide">
+          <div class="img">
+            <img
+              src="https://cdn.cuberto.com/cb/upload/480b30071a8533b278c30dd7d9133f09.png"
+              alt=""
+            />
+          </div>
+          <div class="tag">Design Course</div>
+          <h3>How To Make Epic Website // Frontend Development</h3>
+        </div>
+        <div class="slide">
+          <div class="img">
+            <img
+              src="https://cdn.cuberto.com/cb/upload/885fbbc555395f745746b23b73f539f5.png"
+              alt=""
+            />
+          </div>
+          <div class="tag">Design Course</div>
+          <h3>Cuberto Mouse Follower</h3>
+        </div>
+        <div class="slide">
+          <div class="img">
+            <img
+              src="https://cdn.cuberto.com/cb/upload/99d9ee549abf01940d4b1cfa04734b7d.jpg"
+              alt=""
+            />
+          </div>
+          <div class="tag">Design Course</div>
+          <h3>Making switch with SVG Distortion Effect</h3>
+        </div>
+      </div>
+      <div class="btndiv">
+        <button>view all products</button>
+      </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"
+      integrity="sha512-auFmPm+de880vk/c+bgBmuOnQ7BM28z7zPWmepVgX8737t75OHZjElOnQqERwP8cE4DIyCJ+gb1kE0b/eLWcnA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/sheryjs/dist/Shery.js"
+    ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
