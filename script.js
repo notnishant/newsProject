@@ -16,17 +16,45 @@ gsap.to(".fleftelm", {
   ease: Power1,
 });
 
-let sections = document.querySelectorAll(".fleftelm");
-Shery.imageEffect(".images", {
-  style: 3,
-  slideStyle: (setScroll) => {
-    sections.forEach(function (section) {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        scrub: 1,
-        onUpdate: function (prog) {},
-      });
+gsap.registerPlugin(ScrollTrigger);
+
+let container = document.querySelector(".slides"),
+  slides = gsap.utils.toArray(".slide"),
+  getRatio = (el) =>
+    window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+slides.forEach((slide, i) => {
+  let bg = slide.querySelector(".background"),
+    content = slide.querySelector(".content"),
+    tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: slide,
+        start: () => (i ? "top bottom" : "top top"),
+        end: "bottom top",
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
     });
-  },
+
+  tl.fromTo(
+    bg,
+    {
+      y: () => (i ? -window.innerHeight + 20 * getRatio(slide) : 0),
+    },
+    {
+      y: () => window.innerHeight + 20 * (1 - getRatio(slide)),
+      ease: "none",
+    }
+  );
+  tl.fromTo(
+    content,
+    {
+      y: () => (i ? -window.innerHeight * 0.5 * getRatio(slide) : 0),
+    },
+    {
+      y: () => window.innerHeight * (1 - getRatio(slide)),
+      ease: "none",
+    },
+    0
+  );
 });
