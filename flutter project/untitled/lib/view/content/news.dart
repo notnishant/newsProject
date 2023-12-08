@@ -1,4 +1,5 @@
 // import 'dart:developer';
+
 // import 'package:flutter/material.dart';
 // import '../../data/api.dart';
 
@@ -27,7 +28,7 @@
 //   Future<void> fetchTopHeadlines() async {
 //     try {
 //       final Map<String, dynamic> fetchedData = await newsApiService.fetchData(
-//         'country=$selectedCountryCode',
+//         selectedCountryCode,
 //       );
 //       setState(() {
 //         data = fetchedData;
@@ -54,7 +55,7 @@
 //       fetchData(query);
 //     } else {
 //       // Handle empty query
-//       log('Empty query');
+//       ('Empty query');
 //     }
 //   }
 
@@ -125,7 +126,58 @@
 //                 thickness: 2,
 //                 color: Colors.grey.withOpacity(0.3),
 //               ),
-//              Divider(
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Container(
+//                     // color: Colors.green,
+//                     width: MediaQuery.of(context).size.width / 2.5,
+//                     child: TextField(
+//                       controller: searchController,
+//                       decoration: InputDecoration(
+//                         hintText: 'Search',
+//                         prefixIcon: const Icon(Icons.search_outlined),
+//                         hintStyle: TextStyle(
+//                             color: Colors.grey.withOpacity(0.3), fontSize: 20),
+//                         border: const OutlineInputBorder(
+//                           borderSide: BorderSide.none,
+//                         ),
+//                       ),
+//                       onChanged: onSearchChanged,
+//                     ),
+//                   ),
+//                   Container(
+//                     width: 2,
+//                     height: 30,
+//                     color: Colors.grey.withOpacity(0.3),
+//                   ),
+//                   Container(
+//                     // color: Colors.yellow,
+//                     width: MediaQuery.of(context).size.width / 2.5,
+//                     child: DropdownButton<String>(
+//                       // style: TextStyle(),
+//                       value: selectedCountryCode,
+//                       onChanged: onCountryChanged,
+//                       items: const [
+//                         DropdownMenuItem(
+//                           value: 'us',
+//                           child: Text('United States'),
+//                         ),
+//                         DropdownMenuItem(
+//                           value: 'UK',
+//                           child: Text('United Kingdom'),
+//                         ),
+//                         DropdownMenuItem(
+//                           value: 'india',
+//                           child: Text('India'),
+//                         ),
+//                         // Add more countries as needed
+//                       ],
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               Divider(
 //                 thickness: 2,
 //                 color: Colors.grey.withOpacity(0.3),
 //               ),
@@ -155,7 +207,7 @@
 // }
 
 // void main() {
-//   runApp(const MaterialApp(
+//   runApp(MaterialApp(
 //     home: NewsDisplayPage(),
 //   ));
 // }
