@@ -1,13 +1,11 @@
-import 'dart:developer';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled/data/providers/news_api_provider.dart';
 import '../../presentation/providers/news_provider.dart';
 import 'newsdetailscreen.dart';
 
 class NewsScreen extends StatefulWidget {
+  const NewsScreen({super.key});
+
   @override
   State<NewsScreen> createState() => _NewsScreenState();
 }
@@ -16,20 +14,20 @@ class _NewsScreenState extends State<NewsScreen> {
   final String apiKey = '85940a4d7b23488ba7ecd9e9e7c6533e';
   TextEditingController searchController = TextEditingController();
   String selectedCountryCode = 'us'; // Default country is the United States
-  late NewsApiProvider newsApiProvider; // Declare the variable
+  // late NewsApiProvider newsApiProvider; // Declare the variable
 
   @override
   void initState() {
     super.initState();
+    Provider.of<NewsProvider>(context, listen: false)
+        .fetchHeadlines(apiKey, 'india');
+    // Provider.of<NewsProvider>(context, listen: false).getTotalResults;
   }
 
   @override
   Widget build(BuildContext context) {
     final newsProvider = Provider.of<NewsProvider>(context);
-    final newsApiProvider =
-        Provider.of<NewsApiProvider>(context); 
 
-        
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -39,9 +37,9 @@ class _NewsScreenState extends State<NewsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    newsApiProvider.totalResults.toString(),
-                    style: const TextStyle(
+                  const Text(
+                    "Hello",
+                    style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
                         color: Colors.black),
@@ -96,7 +94,7 @@ class _NewsScreenState extends State<NewsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     // color: Colors.green,
                     width: MediaQuery.of(context).size.width / 2.5,
                     child: TextField(
@@ -126,7 +124,7 @@ class _NewsScreenState extends State<NewsScreen> {
                     height: 30,
                     color: Colors.grey.withOpacity(0.3),
                   ),
-                  Container(
+                  SizedBox(
                     // color: Colors.yellow,
                     width: MediaQuery.of(context).size.width / 2.5,
                     child: DropdownButton<String>(

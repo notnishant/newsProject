@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import '../../data/models/news_model.dart';
 import '../../data/use_cases/news_use_case.dart';
 
 class NewsProvider extends ChangeNotifier {
   final NewsUseCase _newsUseCase = NewsUseCase();
   List<NewsArticle> _news = [];
-
+  late int totalResults;
   List<NewsArticle> get news => _news;
+
+  int get getTotalResults {
+    if (totalResults == 0) {
+      // You might want to throw an error or handle this situation differently
+      throw Exception('totalResults not initialized');
+    }
+    return totalResults;
+  }
 
   Future<void> fetchNews(String apiKey, String query) async {
     print('Fetching news...');

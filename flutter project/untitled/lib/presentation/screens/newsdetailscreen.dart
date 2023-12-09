@@ -78,9 +78,9 @@ class NewsDetailsScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          if (article.content != null)
+                          if (article.content.isNotEmpty)
                             Text(
-                              article.description!,
+                              article.description,
                               style: const TextStyle(
                                 fontSize: 18,
                                 color: Colors.black87,
