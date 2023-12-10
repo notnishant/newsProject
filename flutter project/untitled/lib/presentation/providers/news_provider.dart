@@ -8,13 +8,6 @@ class NewsProvider extends ChangeNotifier {
   late int totalResults;
   List<NewsArticle> get news => _news;
 
-  int get getTotalResults {
-    if (totalResults == 0) {
-      // You might want to throw an error or handle this situation differently
-      throw Exception('totalResults not initialized');
-    }
-    return totalResults;
-  }
 
   Future<void> fetchNews(String apiKey, String query) async {
     print('Fetching news...');

@@ -5,15 +5,9 @@ import '../models/news_model.dart';
 
 class NewsApiProvider extends ChangeNotifier {
   final Dio _dio = Dio();
-  late int totalResults;
+  int _totalResults = 0;
 
-  int get getTotalResults {
-    if (totalResults == 0) {
-      // You might want to throw an error or handle this situation differently
-      throw Exception('totalResults not initialized');
-    }
-    return totalResults;
-  }
+  int get totalResults => _totalResults;
 
   Future<List<NewsArticle>> fetchNews(String apiKey, String query) async {
     try {
@@ -22,7 +16,7 @@ class NewsApiProvider extends ChangeNotifier {
       );
 
       if (response.statusCode == 200) {
-        totalResults = response.data['totalResults'] ?? 0;
+        _totalResults = response.data['totalResults'];
         notifyListeners();
         print(totalResults.toString());
 
@@ -54,7 +48,7 @@ class NewsApiProvider extends ChangeNotifier {
         'https://newsapi.org/v2/everything?&apiKey=$apiKey&country=$country',
       );
       if (response.statusCode == 200) {
-        totalResults = response.data['totalResults'] ?? 0;
+        _totalResults = response.data['totalResults'];
         notifyListeners();
         print(totalResults.toString());
         final List<dynamic> articles = response.data['articles'];
