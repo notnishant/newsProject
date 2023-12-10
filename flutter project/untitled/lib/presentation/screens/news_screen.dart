@@ -4,8 +4,7 @@ import '../../data/providers/news_api_provider.dart';
 import '../../presentation/providers/news_provider.dart';
 import 'components/filtercomponent.dart';
 import 'components/newscard.dart';
-import 'newsdetailscreen.dart';
-import 'package:untitled/data/models/news_model.dart';
+
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({super.key});
@@ -103,19 +102,19 @@ class _NewsScreenState extends State<NewsScreen> {
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Text(
                           // "32504",
                           Provider.of<NewsApiProvider>(context, listen: false)
                               .totalResults
                               .toString(),
-                          style: TextStyle(
+                          style:const  TextStyle(
                               fontSize: 50,
                               color: Colors.black,
                               fontWeight: FontWeight.w700),
                         ),
                       ),
-                      Padding(
+                    const   Padding(
                         padding: EdgeInsets.only(top: 10),
                         child: Text(
                           "articles",

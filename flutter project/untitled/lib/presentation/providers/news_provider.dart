@@ -5,7 +5,6 @@ import '../../data/use_cases/news_use_case.dart';
 class NewsProvider extends ChangeNotifier {
   final NewsUseCase _newsUseCase = NewsUseCase();
   List<NewsArticle> _news = [];
-  late int totalResults;
   List<NewsArticle> get news => _news;
 
 

@@ -5,6 +5,7 @@ import '../models/news_model.dart';
 
 class NewsApiProvider extends ChangeNotifier {
   final Dio _dio = Dio();
+ 
   int _totalResults = 0;
 
   int get totalResults => _totalResults;
