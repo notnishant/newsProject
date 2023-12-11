@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/models/news_model.dart';
-import '../newsdetailscreen.dart';
+import 'newsdetailscreen.dart';
 
 newscard(BuildContext context, NewsArticle article) {
   return GestureDetector(

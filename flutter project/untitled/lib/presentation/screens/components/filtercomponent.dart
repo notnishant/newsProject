@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/providers/news_api_provider.dart';
 import '../../providers/news_provider.dart';
 
 class FilterComponent extends StatefulWidget {
@@ -18,6 +19,7 @@ class _FilterComponentState extends State<FilterComponent> {
   @override
   Widget build(BuildContext context) {
     final newsProvider = Provider.of<NewsProvider>(context);
+    final newsApiProvider = Provider.of<NewsApiProvider>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -38,6 +40,8 @@ class _FilterComponentState extends State<FilterComponent> {
             ),
             onChanged: (value) {
               newsProvider.fetchNews(apiKey, value);
+              print(
+                  'Total Results after fetchNews: ${newsApiProvider.totalResults}');
             },
             onEditingComplete: () {
               newsProvider.fetchNews(apiKey, searchController.text);
@@ -53,10 +57,14 @@ class _FilterComponentState extends State<FilterComponent> {
           width: MediaQuery.of(context).size.width / 2.5,
           child: DropdownButton<String>(
             value: selectedCountryCode,
+            focusColor: Colors.transparent,
+            underline: const SizedBox(),
             onChanged: (value) {
               setState(() {
                 selectedCountryCode = value!;
                 newsProvider.fetchHeadlines(apiKey, selectedCountryCode);
+                print(
+                    'Total Results after fetchNews: ${newsApiProvider.totalResults}');
               });
             },
             items: const [

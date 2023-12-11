@@ -5,7 +5,7 @@ import '../models/news_model.dart';
 
 class NewsApiProvider extends ChangeNotifier {
   final Dio _dio = Dio();
- 
+
   int _totalResults = 0;
 
   int get totalResults => _totalResults;
@@ -19,7 +19,7 @@ class NewsApiProvider extends ChangeNotifier {
       if (response.statusCode == 200) {
         _totalResults = response.data['totalResults'];
         notifyListeners();
-        print(totalResults.toString());
+        print('Total Results inside fetchNews: $_totalResults');
 
         final List<dynamic> articles = response.data['articles'];
 
