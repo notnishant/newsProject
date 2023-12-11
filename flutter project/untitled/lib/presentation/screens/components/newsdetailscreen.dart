@@ -15,28 +15,31 @@ class NewsDetailsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(),
-                  color: Colors.blue, // Change the color as needed
-                ),
-                child: Hero(
-                  tag: 'news_image_${article.title}',
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                        // top: Radius.circular(20),
-                        
-                        ),
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image.network(
-                        article.imageUrl,
-                        fit: BoxFit.cover,
-                      ),
+              if (article.imageUrl != '' || article.title != '')
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(),
+                    color: Colors.blue,
+                  ),
+                  child: Hero(
+                    tag: 'news_image_${article.title}',
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.vertical(
+                          // top: Radius.circular(20),
+
+                          ),
+                      child: article.imageUrl != ''
+                          ? AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.network(
+                                article.imageUrl,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          : const SizedBox(),
                     ),
                   ),
                 ),
-              ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -63,22 +66,23 @@ class NewsDetailsScreen extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[200], // Change the color as needed
+                        color: Colors.grey[200],
                       ),
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Description:',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                          if (article.description != '')
+                            const Text(
+                              'Description:',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
                           const SizedBox(height: 8),
-                          if (article.content.isNotEmpty)
+                          if (article.description != '')
                             Text(
                               article.description,
                               style: const TextStyle(
@@ -90,22 +94,24 @@ class NewsDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Content:',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                    if (article.content != '')
+                      const Text(
+                        'Content:',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
                     const SizedBox(height: 8),
-                    Text(
-                      article.content,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.black87,
+                    if (article.content != '')
+                      Text(
+                        article.content,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.black87,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),

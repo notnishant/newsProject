@@ -35,12 +35,14 @@ newscard(BuildContext context, NewsArticle article) {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        if(article.title != '')
                         Text(
                           article.title,
                           style: const TextStyle(
                               fontSize: 30, fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(height: 10),
+                        if(article.author != '')
                         Text(
                           'By ${article.author}',
                           style: const TextStyle(
@@ -59,14 +61,15 @@ newscard(BuildContext context, NewsArticle article) {
                   // ),
                 ],
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  article.imageUrl,
-                  fit: BoxFit.cover,
-                  height: 200,
+              if (article.imageUrl != '')
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    article.imageUrl,
+                    fit: BoxFit.cover,
+                    height: 200,
+                  ),
                 ),
-              ),
             ],
           ),
         ),

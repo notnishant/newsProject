@@ -37,6 +37,7 @@ dependencies:
   http: ^1.1.0
   dio: ^5.4.0
   provider: ^6.1.1
+  country_picker: ^2.0.21
 
 dev_dependencies:
   flutter_test:

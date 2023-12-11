@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/presentation/screens/news_screen.dart';
 import 'presentation/providers/news_provider.dart';
-import 'data/providers/news_api_provider.dart'; // Import the NewsApiProvider
+import 'data/providers/news_api_provider.dart'; 
 
 void main() {
   runApp(const MyApp());
