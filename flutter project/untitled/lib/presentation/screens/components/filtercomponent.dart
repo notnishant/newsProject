@@ -48,7 +48,7 @@ class _FilterComponentState extends State<FilterComponent> {
                 _debounceTimer!.cancel();
               }
 
-              _debounceTimer = Timer(const Duration(milliseconds: 700), () {
+              _debounceTimer = Timer(const Duration(milliseconds: 500), () {
                 newsProvider.fetchNews(apiKey, value);
               });
             },

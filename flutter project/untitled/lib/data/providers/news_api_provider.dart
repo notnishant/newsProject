@@ -6,9 +6,9 @@ import '../models/news_model.dart';
 class NewsApiProvider extends ChangeNotifier {
   final Dio _dio = Dio();
 
-  int _totalResults = 0;
+  static int  _totalResults = 0;
 
-  int get totalResults => _totalResults;
+ static int get totalResults => _totalResults;
 
   Future<List<NewsArticle>> fetchNews(String apiKey, String query) async {
     try {

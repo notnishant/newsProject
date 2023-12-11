@@ -106,33 +106,33 @@ class _NewsScreenState extends State<NewsScreen> {
                         thickness: 2,
                         color: Colors.grey.withOpacity(0.3),
                       ),
-                      // Wrap(
-                      //   crossAxisAlignment: WrapCrossAlignment.center,
-                      //   children: [
-                      //     Padding(
-                      //       padding: const EdgeInsets.all(8.0),
-                      //       child: Text(
-                      //         // "32504",
-                      //         // newsApiProvider.totalResults.toString(),
-                      //         newsApiProvider.totalResults.toString(),
-                      //         style: const TextStyle(
-                      //             fontSize: 50,
-                      //             color: Colors.black,
-                      //             fontWeight: FontWeight.w700),
-                      //       ),
-                      //     ),
-                      //     const Padding(
-                      //       padding: EdgeInsets.only(top: 10),
-                      //       child: Text(
-                      //         "articles",
-                      //         style: TextStyle(
-                      //             fontSize: 30,
-                      //             color: Colors.grey,
-                      //             fontWeight: FontWeight.w600),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              // "32504",
+                              // newsApiProvider.totalResults.toString(),
+                              NewsApiProvider.totalResults.toString(),
+                              style: const TextStyle(
+                                  fontSize: 50,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text(
+                              "articles",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
